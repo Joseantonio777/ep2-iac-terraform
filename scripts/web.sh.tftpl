@@ -1,0 +1,28 @@
+#!/bin/bash
+apt-get update -y
+apt-get install -y nginx
+systemctl start nginx
+systemctl enable nginx
+
+cat << 'HTML' > /var/www/html/index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evaluacion Parcial 2 - IaC</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0f172a; color: #f8fafc; text-align: center; padding-top: 50px; }
+        .card { background: #1e293b; border-radius: 12px; padding: 30px; display: inline-block; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.5); }
+        h1 { color: #38bdf8; }
+        .tag { background: #0284c7; padding: 6px 12px; border-radius: 6px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Sitio Web Estatico</h1>
+        <p><strong>Estudiante:</strong> ${estudiante}</p>
+        <p><strong>Entorno:</strong> <span class="tag">${entorno}</span></p>
+        <p>Servicio corriendo tras Application Load Balancer en AWS</p>
+    </div>
+</body>
+</html>
+HTML

@@ -1,0 +1,9 @@
+alb_backend_dns = "http://ep2-iac-dev-alb-backend-232243523.us-east-1.elb.amazonaws.com"
+alb_estatico_dns = "http://ep2-iac-dev-alb-estatico-271848994.us-east-1.elb.amazonaws.com"
+backend_instance_ids = [
+  "i-0cb0e3e0c9d69f802",
+  "i-099c79ddb795f525c",
+  "i-0b394b292af43cbe4",
+]
+rds_endpoint = "ep2-iac-dev-mysql.caqqoyogd1e6.us-east-1.rds.amazonaws.com"
+rds_password = <sensitive>
