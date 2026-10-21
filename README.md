@@ -3,7 +3,6 @@
 **Asignatura:** Infraestructura como Código I  
 **Institución:** Duoc UC  
 **Integrantes:** José Antonio Villarroel Cires / Fernando Galdamez  
-**Docente:** Maleta Didáctica Duoc UC  
 **Fecha:** Octubre 2026  
 
 ---
