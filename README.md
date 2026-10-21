@@ -13,7 +13,8 @@
 
 La solución traduce el diagrama de arquitectura empresarial on-premises a servicios gestionados en AWS utilizando **Terraform** bajo las restricciones y guardrails de **AWS Academy Learner Lab**:
 
-![Arquitectura de Infraestructura como Código](assets/diagrama_arquitectura.jpg)
+![Figura 1. Diagrama de arquitectura IaC en AWS (ep2-iac-dev)](assets/diagrama_arquitectura.jpg)
+*Figura 1. Diagrama de arquitectura IaC en AWS (ep2-iac-dev) con distribución multi-AZ y variante CDN.*
 
 ### Componentes Clave:
 1. **Red Modular (VPC Pública/Privada):** Módulo verificado del registro público `terraform-aws-modules/vpc/aws` versión `~> 5.0`.
@@ -148,16 +149,19 @@ ep2-iac-terraform/
 │   ├── state_list.txt    # terraform state list
 │   ├── output.txt        # terraform output
 │   └── show.txt          # terraform show -no-color
-└── evidencias/           # Capturas secuenciales de validación
+└── evidencias/           # Capturas secuenciales de validación (15 figuras del informe)
     ├── 01_terraform_init.png
     ├── 02_terraform_validate.png
+    ├── 02b_terraform_fmt_check.png
     ├── 03_terraform_plan_dev.png
     ├── 04_terraform_apply_outputs.png
     ├── 05_validacion_web_estatico.png
     ├── 06_validacion_backends_docker.png
+    ├── 06b_error_scp_cloudfront.png
     ├── 07_validacion_dbeaver_conexion.png
     ├── 08_validacion_dbeaver_query_alumnos.png
     ├── 09_idempotencia_no_changes.png
+    ├── 09b_reemplazo_replace_forzado.png
     ├── 10_plan_produccion_multientorno.png
     └── 11_destroy_complete.png
 ```
@@ -208,16 +212,61 @@ terraform destroy -var-file=dev.tfvars -auto-approve
 
 ---
 
-## 6. Evidencias del Despliegue y Pruebas Operativas
+## 6. Evidencias del Despliegue y Pruebas Operativas (Figuras del Informe)
 
-| Código | Descripción de la Evidencia | Archivo de Respaldo |
-| :---: | :--- | :--- |
-| **E1** | Validación estática y de formato exitosa (`terraform fmt -check` y `validate`) | `evidencias/02_terraform_validate.png` |
-| **E2** | Plan de ejecución y apply con outputs de endpoints y balanceadores | `evidencias/04_terraform_apply_outputs.png`, `salidas/output.txt` |
-| **E3** | Prueba de CDN y error SCP documentado | Sección 2.B de README y Bitácora de Depuración |
-| **E4** | Reemplazo forzado de instancia (`-replace="module.servidor_backend.aws_instance.this[1]"`) con ciclo `-/+` | `salidas/show.txt`, `salidas/state_list.txt` |
-| **E5** | Incidencia provocada deliberadamente (`security_groups` en `aws_db_instance`) y diagnóstico | Bitácora de Depuración y Sección 4.4 del Informe |
-| **E6** | Verificación de idempotencia (`No changes. Your infrastructure matches the configuration.`) | `evidencias/09_idempotencia_no_changes.png` |
-| **E7** | Validación de respuesta HTTP 200 en ambos ALBs (Sitio Estático y Microservicios Docker) | `evidencias/05_validacion_web_estatico.png`, `evidencias/06_validacion_backends_docker.png` |
-| **E8** | Salidas completas en texto plano de estado, outputs e inspección | `salidas/state_list.txt`, `salidas/output.txt`, `salidas/show.txt` |
-| **E9** | Destrucción controlada de infraestructura (`Destroy complete!`) | `evidencias/11_destroy_complete.png` |
+A continuación se presentan todas las evidencias visuales y capturas de consola del ciclo completo de vida de la infraestructura, exactamente correspondientes a las figuras documentadas en el informe oficial:
+
+### Etapa 1: Ambiente de Trabajo, Providers y Módulos
+#### Figura 2. Inicialización exitosa de Terraform descargando providers y módulos
+![Figura 2](evidencias/01_terraform_init.png)
+
+#### Figura 3. Validación exitosa del código HCL ("Success! The configuration is valid")
+![Figura 3](evidencias/02_terraform_validate.png)
+
+#### Figura 4. Formateo y validación de código con `terraform fmt -check` y `terraform validate` (Evidencia E1)
+![Figura 4](evidencias/02b_terraform_fmt_check.png)
+
+---
+
+### Etapa 2: Planificación y Aplicación Declarativa
+#### Figura 5. Resumen del plan de ejecución con los recursos proyectados
+![Figura 5](evidencias/03_terraform_plan_dev.png)
+
+#### Figura 6. Despliegue finalizado exitosamente y outputs generados
+![Figura 6](evidencias/04_terraform_apply_outputs.png)
+
+---
+
+### Etapa 3: Validación Funcional de Servicios
+#### Figura 7. Sitio web estático accesible a través del ALB (Nginx)
+![Figura 7](evidencias/05_validacion_web_estatico.png)
+
+#### Figura 8. Clúster de microservicios Docker respondiendo a través del balanceador ALB
+![Figura 8](evidencias/06_validacion_backends_docker.png)
+
+#### Figura 9. Parámetros de conexión configurados en DBeaver hacia RDS MySQL
+![Figura 9](evidencias/07_validacion_dbeaver_conexion.png)
+
+#### Figura 10. Consulta SELECT sobre la tabla alumnos verificando los registros persistidos
+![Figura 10](evidencias/08_validacion_dbeaver_query_alumnos.png)
+
+#### Figura 11. Error de Service Control Policy (SCP) en CloudFront y S3 Object Lock al desplegar la rama CDN (Evidencia E3)
+![Figura 11](evidencias/06b_error_scp_cloudfront.png)
+
+---
+
+### Etapa 4: Depuración, Idempotencia y Reemplazo Forzado
+#### Figura 12. Idempotencia comprobada: infraestructura sincronizada sin cambios pendientes
+![Figura 12](evidencias/09_idempotencia_no_changes.png)
+
+#### Figura 13. Reemplazo forzado de recurso (`-replace`) evidenciando el ciclo de recreación `-/+` (Evidencia E4)
+![Figura 13](evidencias/09b_reemplazo_replace_forzado.png)
+
+---
+
+### Etapa 5: Gestión Multi-Entorno y Cierre de Infraestructura
+#### Figura 14. Plan de ejecución para producción (`prod.tfvars`), evidenciando escalabilidad
+![Figura 14](evidencias/10_plan_produccion_multientorno.png)
+
+#### Figura 15. Cierre del ciclo de vida con `terraform destroy` finalizado (39 recursos destruidos)
+![Figura 15](evidencias/11_destroy_complete.png)
