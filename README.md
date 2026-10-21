@@ -65,8 +65,6 @@ ep2-iac-terraform/
 ├── prod.tfvars           # Configuración entorno Producción (t3.small, 4 backends)
 ├── .gitignore            # Exclusión de estado y credenciales
 ├── README.md             # Este documento con diagrama y evidencias
-├── Informe_Evaluacion_IaC_Villarroel_Galdamez_Ev2.docx # Informe oficial Word
-├── Informe_Evaluacion_IaC_Villarroel_Galdamez_Ev2.pdf  # Informe oficial PDF
 ├── assets/
 │   ├── diagrama_arquitectura.jpg # Diagrama oficial de arquitectura en AWS
 │   └── duoc.png
