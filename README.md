@@ -3,9 +3,7 @@
 **Asignatura:** Infraestructura como Código I  
 **Institución:** Duoc UC  
 **Integrantes:** José Antonio Villarroel Cires / Fernando Galdámez  
-**Docente:** Maleta Didáctica Duoc UC  
 **Fecha:** Octubre 2026  
-**Repositorio GitHub:** [https://github.com/Joseantonio777/ep2-iac-terraform](https://github.com/Joseantonio777/ep2-iac-terraform)
 
 ---
 
