@@ -13,7 +13,7 @@
 
 La solución traduce el diagrama de arquitectura empresarial on-premises a servicios gestionados en AWS utilizando **Terraform** bajo las restricciones y guardrails de **AWS Academy Learner Lab**:
 
-![Figura 1. Diagrama de arquitectura IaC en AWS (ep2-iac-dev)](assets/diagrama_arquitectura.jpg)
+![Figura 1. Diagrama de arquitectura IaC en AWS (ep2-iac-dev)](assets/diagrama_arquitectura.png)
 *Figura 1. Diagrama de arquitectura IaC en AWS (ep2-iac-dev) con distribución multi-AZ y variante CDN.*
 
 ### Componentes Clave:
