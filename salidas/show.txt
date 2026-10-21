@@ -124,17 +124,17 @@ data "aws_region" "actual" {
 # data.http.mi_ip:
 data "http" "mi_ip" {
     body                 = <<-EOT
-        181.43.35.13
+        181.42.139.25
     EOT
     id                   = "https://checkip.amazonaws.com"
     response_body        = <<-EOT
-        181.43.35.13
+        181.42.139.25
     EOT
-    response_body_base64 = "MTgxLjQzLjM1LjEzCg=="
+    response_body_base64 = "MTgxLjQyLjEzOS4yNQo="
     response_headers     = {
-        "Content-Length" = "13"
+        "Content-Length" = "14"
         "Content-Type"   = "text/plain;charset=UTF-8"
-        "Date"           = "Wed, 21 Oct 2026 00:15:04 GMT"
+        "Date"           = "Wed, 21 Oct 2026 16:31:13 GMT"
         "Server"         = "nginx"
         "Vary"           = "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
     }
@@ -149,10 +149,10 @@ resource "aws_db_instance" "mysql" {
     apply_immediately                     = false
     arn                                   = "arn:aws:rds:us-east-1:962392836377:db:ep2-iac-dev-mysql"
     auto_minor_version_upgrade            = true
-    availability_zone                     = "us-east-1b"
+    availability_zone                     = "us-east-1a"
     backup_retention_period               = 0
     backup_target                         = "region"
-    backup_window                         = "05:54-06:24"
+    backup_window                         = "05:47-06:17"
     ca_cert_identifier                    = "rds-ca-rsa2048-g1"
     character_set_name                    = null
     copy_tags_to_snapshot                 = false
@@ -178,7 +178,7 @@ resource "aws_db_instance" "mysql" {
     engine_version_actual                 = "8.0.46-rds.20260908"
     hosted_zone_id                        = "Z2R2ITUGPM61AM"
     iam_database_authentication_enabled   = false
-    id                                    = "db-VDFBOHQNMT2UN2BIGIFOHZPG74"
+    id                                    = "db-P4Y5EWR4X6BXTWBHMSI277ZA3A"
     identifier                            = "ep2-iac-dev-mysql"
     identifier_prefix                     = null
     instance_class                        = "db.t3.micro"
@@ -187,7 +187,7 @@ resource "aws_db_instance" "mysql" {
     latest_restorable_time                = null
     license_model                         = "general-public-license"
     listener_endpoint                     = []
-    maintenance_window                    = "sat:08:41-sat:09:11"
+    maintenance_window                    = "sun:06:33-sun:07:03"
     master_user_secret                    = []
     max_allocated_storage                 = 0
     monitoring_interval                   = 0
@@ -208,7 +208,7 @@ resource "aws_db_instance" "mysql" {
     replica_mode                          = null
     replicas                              = []
     replicate_source_db                   = null
-    resource_id                           = "db-VDFBOHQNMT2UN2BIGIFOHZPG74"
+    resource_id                           = "db-P4Y5EWR4X6BXTWBHMSI277ZA3A"
     skip_final_snapshot                   = true
     status                                = "available"
     storage_encrypted                     = false
@@ -219,7 +219,7 @@ resource "aws_db_instance" "mysql" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-mysql"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                              = {
@@ -227,25 +227,25 @@ resource "aws_db_instance" "mysql" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-mysql"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     timezone                              = null
     upgrade_rollout_order                 = "second"
     username                              = (sensitive value)
     vpc_security_group_ids                = [
-        "sg-0b35afe6a13b234b7",
+        "sg-0e1ce013446406b22",
     ]
 }
 
 # aws_lb.this["backend"]:
 resource "aws_lb" "this" {
-    arn                                                          = "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-backend/23500c93246a6852"
-    arn_suffix                                                   = "app/ep2-iac-dev-alb-backend/23500c93246a6852"
+    arn                                                          = "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-backend/051743b03fc1067a"
+    arn_suffix                                                   = "app/ep2-iac-dev-alb-backend/051743b03fc1067a"
     client_keep_alive                                            = 3600
     customer_owned_ipv4_pool                                     = null
     desync_mitigation_mode                                       = "defensive"
-    dns_name                                                     = "ep2-iac-dev-alb-backend-232243523.us-east-1.elb.amazonaws.com"
+    dns_name                                                     = "ep2-iac-dev-alb-backend-1680548512.us-east-1.elb.amazonaws.com"
     drop_invalid_header_fields                                   = false
     enable_cross_zone_load_balancing                             = true
     enable_deletion_protection                                   = false
@@ -256,7 +256,7 @@ resource "aws_lb" "this" {
     enable_xff_client_port                                       = false
     enable_zonal_shift                                           = false
     enforce_security_group_inbound_rules_on_private_link_traffic = null
-    id                                                           = "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-backend/23500c93246a6852"
+    id                                                           = "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-backend/051743b03fc1067a"
     idle_timeout                                                 = 60
     internal                                                     = false
     ip_address_type                                              = "ipv4"
@@ -266,18 +266,18 @@ resource "aws_lb" "this" {
     preserve_host_header                                         = false
     region                                                       = "us-east-1"
     security_groups                                              = [
-        "sg-066304f90a040402f",
+        "sg-0643c08393ff3faf6",
     ]
     subnets                                                      = [
-        "subnet-045e51af0e212ada4",
-        "subnet-059451346ad674f61",
+        "subnet-043a5167a3b8f0fc6",
+        "subnet-0eaf1bbe771f09950",
     ]
     tags                                                         = {
         "Asignatura"  = "AUY1103 - Infraestructura como Codigo I"
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-alb-backend"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                                                     = {
@@ -285,10 +285,10 @@ resource "aws_lb" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-alb-backend"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                                                       = "vpc-03856ada62d3e7db8"
+    vpc_id                                                       = "vpc-07fe2c90418013b0f"
     xff_header_processing_mode                                   = "append"
     zone_id                                                      = "Z35SXDOTRQ7X7K"
 
@@ -315,25 +315,25 @@ resource "aws_lb" "this" {
         ipv6_address         = null
         outpost_id           = null
         private_ipv4_address = null
-        subnet_id            = "subnet-045e51af0e212ada4"
+        subnet_id            = "subnet-043a5167a3b8f0fc6"
     }
     subnet_mapping {
         allocation_id        = null
         ipv6_address         = null
         outpost_id           = null
         private_ipv4_address = null
-        subnet_id            = "subnet-059451346ad674f61"
+        subnet_id            = "subnet-0eaf1bbe771f09950"
     }
 }
 
 # aws_lb.this["estatico"]:
 resource "aws_lb" "this" {
-    arn                                                          = "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-estatico/a0820ff7bfede008"
-    arn_suffix                                                   = "app/ep2-iac-dev-alb-estatico/a0820ff7bfede008"
+    arn                                                          = "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-estatico/9dbcfaf48cbb1afd"
+    arn_suffix                                                   = "app/ep2-iac-dev-alb-estatico/9dbcfaf48cbb1afd"
     client_keep_alive                                            = 3600
     customer_owned_ipv4_pool                                     = null
     desync_mitigation_mode                                       = "defensive"
-    dns_name                                                     = "ep2-iac-dev-alb-estatico-271848994.us-east-1.elb.amazonaws.com"
+    dns_name                                                     = "ep2-iac-dev-alb-estatico-1339877562.us-east-1.elb.amazonaws.com"
     drop_invalid_header_fields                                   = false
     enable_cross_zone_load_balancing                             = true
     enable_deletion_protection                                   = false
@@ -344,7 +344,7 @@ resource "aws_lb" "this" {
     enable_xff_client_port                                       = false
     enable_zonal_shift                                           = false
     enforce_security_group_inbound_rules_on_private_link_traffic = null
-    id                                                           = "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-estatico/a0820ff7bfede008"
+    id                                                           = "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-estatico/9dbcfaf48cbb1afd"
     idle_timeout                                                 = 60
     internal                                                     = false
     ip_address_type                                              = "ipv4"
@@ -354,18 +354,18 @@ resource "aws_lb" "this" {
     preserve_host_header                                         = false
     region                                                       = "us-east-1"
     security_groups                                              = [
-        "sg-0c8df902bf05d39d5",
+        "sg-06c73528df4013e73",
     ]
     subnets                                                      = [
-        "subnet-045e51af0e212ada4",
-        "subnet-059451346ad674f61",
+        "subnet-043a5167a3b8f0fc6",
+        "subnet-0eaf1bbe771f09950",
     ]
     tags                                                         = {
         "Asignatura"  = "AUY1103 - Infraestructura como Codigo I"
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-alb-estatico"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                                                     = {
@@ -373,10 +373,10 @@ resource "aws_lb" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-alb-estatico"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                                                       = "vpc-03856ada62d3e7db8"
+    vpc_id                                                       = "vpc-07fe2c90418013b0f"
     xff_header_processing_mode                                   = "append"
     zone_id                                                      = "Z35SXDOTRQ7X7K"
 
@@ -403,22 +403,22 @@ resource "aws_lb" "this" {
         ipv6_address         = null
         outpost_id           = null
         private_ipv4_address = null
-        subnet_id            = "subnet-045e51af0e212ada4"
+        subnet_id            = "subnet-043a5167a3b8f0fc6"
     }
     subnet_mapping {
         allocation_id        = null
         ipv6_address         = null
         outpost_id           = null
         private_ipv4_address = null
-        subnet_id            = "subnet-059451346ad674f61"
+        subnet_id            = "subnet-0eaf1bbe771f09950"
     }
 }
 
 # aws_lb_listener.http["backend"]:
 resource "aws_lb_listener" "http" {
-    arn                                                                 = "arn:aws:elasticloadbalancing:us-east-1:962392836377:listener/app/ep2-iac-dev-alb-backend/23500c93246a6852/9318ea52a1c8ed0c"
-    id                                                                  = "arn:aws:elasticloadbalancing:us-east-1:962392836377:listener/app/ep2-iac-dev-alb-backend/23500c93246a6852/9318ea52a1c8ed0c"
-    load_balancer_arn                                                   = "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-backend/23500c93246a6852"
+    arn                                                                 = "arn:aws:elasticloadbalancing:us-east-1:962392836377:listener/app/ep2-iac-dev-alb-backend/051743b03fc1067a/2cad2e9dfcd83c96"
+    id                                                                  = "arn:aws:elasticloadbalancing:us-east-1:962392836377:listener/app/ep2-iac-dev-alb-backend/051743b03fc1067a/2cad2e9dfcd83c96"
+    load_balancer_arn                                                   = "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-backend/051743b03fc1067a"
     port                                                                = 80
     protocol                                                            = "HTTP"
     region                                                              = "us-east-1"
@@ -439,7 +439,7 @@ resource "aws_lb_listener" "http" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-listener-backend"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                                                            = {
@@ -447,22 +447,22 @@ resource "aws_lb_listener" "http" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-listener-backend"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
 
     default_action {
         order            = 1
-        target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/47f3a629ffb6fbd3"
+        target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/642c8d1cbd6649c5"
         type             = "forward"
     }
 }
 
 # aws_lb_listener.http["estatico"]:
 resource "aws_lb_listener" "http" {
-    arn                                                                 = "arn:aws:elasticloadbalancing:us-east-1:962392836377:listener/app/ep2-iac-dev-alb-estatico/a0820ff7bfede008/291f0017871ff678"
-    id                                                                  = "arn:aws:elasticloadbalancing:us-east-1:962392836377:listener/app/ep2-iac-dev-alb-estatico/a0820ff7bfede008/291f0017871ff678"
-    load_balancer_arn                                                   = "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-estatico/a0820ff7bfede008"
+    arn                                                                 = "arn:aws:elasticloadbalancing:us-east-1:962392836377:listener/app/ep2-iac-dev-alb-estatico/9dbcfaf48cbb1afd/135bdec80d091958"
+    id                                                                  = "arn:aws:elasticloadbalancing:us-east-1:962392836377:listener/app/ep2-iac-dev-alb-estatico/9dbcfaf48cbb1afd/135bdec80d091958"
+    load_balancer_arn                                                   = "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-estatico/9dbcfaf48cbb1afd"
     port                                                                = 80
     protocol                                                            = "HTTP"
     region                                                              = "us-east-1"
@@ -483,7 +483,7 @@ resource "aws_lb_listener" "http" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-listener-estatico"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                                                            = {
@@ -491,27 +491,27 @@ resource "aws_lb_listener" "http" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-listener-estatico"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
 
     default_action {
         order            = 1
-        target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-estatico/70252a69cd573005"
+        target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-estatico/53a7effaf5986caa"
         type             = "forward"
     }
 }
 
 # aws_lb_target_group.this["backend"]:
 resource "aws_lb_target_group" "this" {
-    arn                                = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/47f3a629ffb6fbd3"
-    arn_suffix                         = "targetgroup/ep2-iac-dev-tg-backend/47f3a629ffb6fbd3"
+    arn                                = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/642c8d1cbd6649c5"
+    arn_suffix                         = "targetgroup/ep2-iac-dev-tg-backend/642c8d1cbd6649c5"
     deregistration_delay               = "300"
-    id                                 = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/47f3a629ffb6fbd3"
+    id                                 = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/642c8d1cbd6649c5"
     ip_address_type                    = "ipv4"
     lambda_multi_value_headers_enabled = false
     load_balancer_arns                 = [
-        "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-backend/23500c93246a6852",
+        "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-backend/051743b03fc1067a",
     ]
     load_balancing_algorithm_type      = "round_robin"
     load_balancing_anomaly_mitigation  = "off"
@@ -529,7 +529,7 @@ resource "aws_lb_target_group" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-tg-backend"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                           = {
@@ -537,12 +537,12 @@ resource "aws_lb_target_group" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-tg-backend"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     target_control_port                = 0
     target_type                        = "instance"
-    vpc_id                             = "vpc-03856ada62d3e7db8"
+    vpc_id                             = "vpc-07fe2c90418013b0f"
 
     health_check {
         enabled             = true
@@ -581,14 +581,14 @@ resource "aws_lb_target_group" "this" {
 
 # aws_lb_target_group.this["estatico"]:
 resource "aws_lb_target_group" "this" {
-    arn                                = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-estatico/70252a69cd573005"
-    arn_suffix                         = "targetgroup/ep2-iac-dev-tg-estatico/70252a69cd573005"
+    arn                                = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-estatico/53a7effaf5986caa"
+    arn_suffix                         = "targetgroup/ep2-iac-dev-tg-estatico/53a7effaf5986caa"
     deregistration_delay               = "300"
-    id                                 = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-estatico/70252a69cd573005"
+    id                                 = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-estatico/53a7effaf5986caa"
     ip_address_type                    = "ipv4"
     lambda_multi_value_headers_enabled = false
     load_balancer_arns                 = [
-        "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-estatico/a0820ff7bfede008",
+        "arn:aws:elasticloadbalancing:us-east-1:962392836377:loadbalancer/app/ep2-iac-dev-alb-estatico/9dbcfaf48cbb1afd",
     ]
     load_balancing_algorithm_type      = "round_robin"
     load_balancing_anomaly_mitigation  = "off"
@@ -606,7 +606,7 @@ resource "aws_lb_target_group" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-tg-estatico"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                           = {
@@ -614,12 +614,12 @@ resource "aws_lb_target_group" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-tg-estatico"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     target_control_port                = 0
     target_type                        = "instance"
-    vpc_id                             = "vpc-03856ada62d3e7db8"
+    vpc_id                             = "vpc-07fe2c90418013b0f"
 
     health_check {
         enabled             = true
@@ -658,7 +658,7 @@ resource "aws_lb_target_group" "this" {
 
 # aws_security_group.alb["backend"]:
 resource "aws_security_group" "alb" {
-    arn                    = "arn:aws:ec2:us-east-1:962392836377:security-group/sg-066304f90a040402f"
+    arn                    = "arn:aws:ec2:us-east-1:962392836377:security-group/sg-0643c08393ff3faf6"
     description            = "Reglas ALB Backends Docker"
     egress                 = [
         {
@@ -675,7 +675,7 @@ resource "aws_security_group" "alb" {
             to_port          = 0
         },
     ]
-    id                     = "sg-066304f90a040402f"
+    id                     = "sg-0643c08393ff3faf6"
     ingress                = [
         {
             cidr_blocks      = [
@@ -701,7 +701,7 @@ resource "aws_security_group" "alb" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-sg-alb-backend"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all               = {
@@ -709,15 +709,15 @@ resource "aws_security_group" "alb" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-sg-alb-backend"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                 = "vpc-03856ada62d3e7db8"
+    vpc_id                 = "vpc-07fe2c90418013b0f"
 }
 
 # aws_security_group.alb["estatico"]:
 resource "aws_security_group" "alb" {
-    arn                    = "arn:aws:ec2:us-east-1:962392836377:security-group/sg-0c8df902bf05d39d5"
+    arn                    = "arn:aws:ec2:us-east-1:962392836377:security-group/sg-06c73528df4013e73"
     description            = "Reglas ALB Sitio Estatico"
     egress                 = [
         {
@@ -734,7 +734,7 @@ resource "aws_security_group" "alb" {
             to_port          = 0
         },
     ]
-    id                     = "sg-0c8df902bf05d39d5"
+    id                     = "sg-06c73528df4013e73"
     ingress                = [
         {
             cidr_blocks      = [
@@ -760,7 +760,7 @@ resource "aws_security_group" "alb" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-sg-alb-estatico"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all               = {
@@ -768,15 +768,15 @@ resource "aws_security_group" "alb" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-sg-alb-estatico"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                 = "vpc-03856ada62d3e7db8"
+    vpc_id                 = "vpc-07fe2c90418013b0f"
 }
 
 # aws_security_group.rds:
 resource "aws_security_group" "rds" {
-    arn                    = "arn:aws:ec2:us-east-1:962392836377:security-group/sg-0b35afe6a13b234b7"
+    arn                    = "arn:aws:ec2:us-east-1:962392836377:security-group/sg-0e1ce013446406b22"
     description            = "Acceso a MySQL"
     egress                 = [
         {
@@ -793,11 +793,11 @@ resource "aws_security_group" "rds" {
             to_port          = 0
         },
     ]
-    id                     = "sg-0b35afe6a13b234b7"
+    id                     = "sg-0e1ce013446406b22"
     ingress                = [
         {
             cidr_blocks      = [
-                "181.43.35.13/32",
+                "181.42.139.25/32",
             ]
             description      = "Acceso desde IP publica actual (DBeaver)"
             from_port        = 3306
@@ -816,7 +816,7 @@ resource "aws_security_group" "rds" {
             prefix_list_ids  = []
             protocol         = "tcp"
             security_groups  = [
-                "sg-00160aa0c48896cb3",
+                "sg-070269476fab85101",
             ]
             self             = false
             to_port          = 3306
@@ -832,7 +832,7 @@ resource "aws_security_group" "rds" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-sg-rds"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all               = {
@@ -840,10 +840,10 @@ resource "aws_security_group" "rds" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-sg-rds"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                 = "vpc-03856ada62d3e7db8"
+    vpc_id                 = "vpc-07fe2c90418013b0f"
 }
 
 # random_password.db:
@@ -868,7 +868,7 @@ resource "random_password" "db" {
 # module.servidor_backend.aws_instance.this[0]:
 resource "aws_instance" "this" {
     ami                                  = "ami-02a9cdd4e98bc3c78"
-    arn                                  = "arn:aws:ec2:us-east-1:962392836377:instance/i-0cb0e3e0c9d69f802"
+    arn                                  = "arn:aws:ec2:us-east-1:962392836377:instance/i-08bc7fa7ed13e3478"
     associate_public_ip_address          = true
     availability_zone                    = "us-east-1a"
     disable_api_stop                     = false
@@ -879,7 +879,7 @@ resource "aws_instance" "this" {
     hibernation                          = false
     host_id                              = null
     iam_instance_profile                 = null
-    id                                   = "i-0cb0e3e0c9d69f802"
+    id                                   = "i-08bc7fa7ed13e3478"
     instance_initiated_shutdown_behavior = "stop"
     instance_lifecycle                   = null
     instance_state                       = "running"
@@ -893,23 +893,23 @@ resource "aws_instance" "this" {
     placement_group                      = null
     placement_group_id                   = null
     placement_partition_number           = 0
-    primary_network_interface_id         = "eni-0673c5dde96195690"
-    private_dns                          = "ip-10-20-0-202.ec2.internal"
-    private_ip                           = "10.20.0.202"
-    public_dns                           = "ec2-3-88-135-95.compute-1.amazonaws.com"
-    public_ip                            = "3.88.135.95"
+    primary_network_interface_id         = "eni-0782fd9924bafa2eb"
+    private_dns                          = "ip-10-20-0-111.ec2.internal"
+    private_ip                           = "10.20.0.111"
+    public_dns                           = "ec2-100-59-19-17.compute-1.amazonaws.com"
+    public_ip                            = "100.59.19.17"
     region                               = "us-east-1"
     secondary_private_ips                = []
     security_groups                      = []
     source_dest_check                    = true
     spot_instance_request_id             = null
-    subnet_id                            = "subnet-059451346ad674f61"
+    subnet_id                            = "subnet-0eaf1bbe771f09950"
     tags                                 = {
         "Asignatura"  = "AUY1103 - Infraestructura como Codigo I"
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-backend-1"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
         "Rol"         = "backend"
     }
@@ -918,7 +918,7 @@ resource "aws_instance" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-backend-1"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
         "Rol"         = "backend"
     }
@@ -933,7 +933,7 @@ resource "aws_instance" "this" {
     EOT
     user_data_replace_on_change          = false
     vpc_security_group_ids               = [
-        "sg-00160aa0c48896cb3",
+        "sg-070269476fab85101",
     ]
 
     capacity_reservation_specification {
@@ -969,7 +969,7 @@ resource "aws_instance" "this" {
 
     primary_network_interface {
         delete_on_termination = true
-        network_interface_id  = "eni-0673c5dde96195690"
+        network_interface_id  = "eni-0782fd9924bafa2eb"
     }
 
     private_dns_name_options {
@@ -987,7 +987,7 @@ resource "aws_instance" "this" {
         tags                  = {}
         tags_all              = {}
         throughput            = 125
-        volume_id             = "vol-0a01cac28cea1d88a"
+        volume_id             = "vol-08a3683f153f34694"
         volume_size           = 8
         volume_type           = "gp3"
     }
@@ -996,7 +996,7 @@ resource "aws_instance" "this" {
 # module.servidor_backend.aws_instance.this[1]:
 resource "aws_instance" "this" {
     ami                                  = "ami-02a9cdd4e98bc3c78"
-    arn                                  = "arn:aws:ec2:us-east-1:962392836377:instance/i-099c79ddb795f525c"
+    arn                                  = "arn:aws:ec2:us-east-1:962392836377:instance/i-0880e040b6c918d4d"
     associate_public_ip_address          = true
     availability_zone                    = "us-east-1b"
     disable_api_stop                     = false
@@ -1007,7 +1007,7 @@ resource "aws_instance" "this" {
     hibernation                          = false
     host_id                              = null
     iam_instance_profile                 = null
-    id                                   = "i-099c79ddb795f525c"
+    id                                   = "i-0880e040b6c918d4d"
     instance_initiated_shutdown_behavior = "stop"
     instance_lifecycle                   = null
     instance_state                       = "running"
@@ -1021,23 +1021,23 @@ resource "aws_instance" "this" {
     placement_group                      = null
     placement_group_id                   = null
     placement_partition_number           = 0
-    primary_network_interface_id         = "eni-0dfbfbbe18d5dffa3"
-    private_dns                          = "ip-10-20-1-189.ec2.internal"
-    private_ip                           = "10.20.1.189"
-    public_dns                           = "ec2-54-167-191-146.compute-1.amazonaws.com"
-    public_ip                            = "54.167.191.146"
+    primary_network_interface_id         = "eni-07e5e81be962af846"
+    private_dns                          = "ip-10-20-1-90.ec2.internal"
+    private_ip                           = "10.20.1.90"
+    public_dns                           = "ec2-107-23-142-66.compute-1.amazonaws.com"
+    public_ip                            = "107.23.142.66"
     region                               = "us-east-1"
     secondary_private_ips                = []
     security_groups                      = []
     source_dest_check                    = true
     spot_instance_request_id             = null
-    subnet_id                            = "subnet-045e51af0e212ada4"
+    subnet_id                            = "subnet-043a5167a3b8f0fc6"
     tags                                 = {
         "Asignatura"  = "AUY1103 - Infraestructura como Codigo I"
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-backend-2"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
         "Rol"         = "backend"
     }
@@ -1046,7 +1046,7 @@ resource "aws_instance" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-backend-2"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
         "Rol"         = "backend"
     }
@@ -1061,7 +1061,7 @@ resource "aws_instance" "this" {
     EOT
     user_data_replace_on_change          = false
     vpc_security_group_ids               = [
-        "sg-00160aa0c48896cb3",
+        "sg-070269476fab85101",
     ]
 
     capacity_reservation_specification {
@@ -1097,7 +1097,7 @@ resource "aws_instance" "this" {
 
     primary_network_interface {
         delete_on_termination = true
-        network_interface_id  = "eni-0dfbfbbe18d5dffa3"
+        network_interface_id  = "eni-07e5e81be962af846"
     }
 
     private_dns_name_options {
@@ -1115,7 +1115,7 @@ resource "aws_instance" "this" {
         tags                  = {}
         tags_all              = {}
         throughput            = 125
-        volume_id             = "vol-044a2309ed742611d"
+        volume_id             = "vol-0cf5568317342200a"
         volume_size           = 8
         volume_type           = "gp3"
     }
@@ -1124,7 +1124,7 @@ resource "aws_instance" "this" {
 # module.servidor_backend.aws_instance.this[2]:
 resource "aws_instance" "this" {
     ami                                  = "ami-02a9cdd4e98bc3c78"
-    arn                                  = "arn:aws:ec2:us-east-1:962392836377:instance/i-0b394b292af43cbe4"
+    arn                                  = "arn:aws:ec2:us-east-1:962392836377:instance/i-02529e46d1b384116"
     associate_public_ip_address          = true
     availability_zone                    = "us-east-1a"
     disable_api_stop                     = false
@@ -1135,7 +1135,7 @@ resource "aws_instance" "this" {
     hibernation                          = false
     host_id                              = null
     iam_instance_profile                 = null
-    id                                   = "i-0b394b292af43cbe4"
+    id                                   = "i-02529e46d1b384116"
     instance_initiated_shutdown_behavior = "stop"
     instance_lifecycle                   = null
     instance_state                       = "running"
@@ -1149,23 +1149,23 @@ resource "aws_instance" "this" {
     placement_group                      = null
     placement_group_id                   = null
     placement_partition_number           = 0
-    primary_network_interface_id         = "eni-04d26505e79dd035e"
-    private_dns                          = "ip-10-20-0-137.ec2.internal"
-    private_ip                           = "10.20.0.137"
-    public_dns                           = "ec2-3-95-168-28.compute-1.amazonaws.com"
-    public_ip                            = "3.95.168.28"
+    primary_network_interface_id         = "eni-0343f4fe6d0bfde0f"
+    private_dns                          = "ip-10-20-0-5.ec2.internal"
+    private_ip                           = "10.20.0.5"
+    public_dns                           = "ec2-13-219-78-240.compute-1.amazonaws.com"
+    public_ip                            = "13.219.78.240"
     region                               = "us-east-1"
     secondary_private_ips                = []
     security_groups                      = []
     source_dest_check                    = true
     spot_instance_request_id             = null
-    subnet_id                            = "subnet-059451346ad674f61"
+    subnet_id                            = "subnet-0eaf1bbe771f09950"
     tags                                 = {
         "Asignatura"  = "AUY1103 - Infraestructura como Codigo I"
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-backend-3"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
         "Rol"         = "backend"
     }
@@ -1174,7 +1174,7 @@ resource "aws_instance" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-backend-3"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
         "Rol"         = "backend"
     }
@@ -1189,7 +1189,7 @@ resource "aws_instance" "this" {
     EOT
     user_data_replace_on_change          = false
     vpc_security_group_ids               = [
-        "sg-00160aa0c48896cb3",
+        "sg-070269476fab85101",
     ]
 
     capacity_reservation_specification {
@@ -1225,7 +1225,7 @@ resource "aws_instance" "this" {
 
     primary_network_interface {
         delete_on_termination = true
-        network_interface_id  = "eni-04d26505e79dd035e"
+        network_interface_id  = "eni-0343f4fe6d0bfde0f"
     }
 
     private_dns_name_options {
@@ -1243,7 +1243,7 @@ resource "aws_instance" "this" {
         tags                  = {}
         tags_all              = {}
         throughput            = 125
-        volume_id             = "vol-014432417a37f7493"
+        volume_id             = "vol-0bd26d7227647b8a1"
         volume_size           = 8
         volume_type           = "gp3"
     }
@@ -1251,34 +1251,34 @@ resource "aws_instance" "this" {
 
 # module.servidor_backend.aws_lb_target_group_attachment.this[0]:
 resource "aws_lb_target_group_attachment" "this" {
-    id               = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/47f3a629ffb6fbd3,i-0cb0e3e0c9d69f802,80"
+    id               = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/642c8d1cbd6649c5,i-08bc7fa7ed13e3478,80"
     port             = 80
     region           = "us-east-1"
-    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/47f3a629ffb6fbd3"
-    target_id        = "i-0cb0e3e0c9d69f802"
+    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/642c8d1cbd6649c5"
+    target_id        = "i-08bc7fa7ed13e3478"
 }
 
 # module.servidor_backend.aws_lb_target_group_attachment.this[1]:
 resource "aws_lb_target_group_attachment" "this" {
-    id               = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/47f3a629ffb6fbd3,i-099c79ddb795f525c,80"
+    id               = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/642c8d1cbd6649c5,i-0880e040b6c918d4d,80"
     port             = 80
     region           = "us-east-1"
-    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/47f3a629ffb6fbd3"
-    target_id        = "i-099c79ddb795f525c"
+    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/642c8d1cbd6649c5"
+    target_id        = "i-0880e040b6c918d4d"
 }
 
 # module.servidor_backend.aws_lb_target_group_attachment.this[2]:
 resource "aws_lb_target_group_attachment" "this" {
-    id               = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/47f3a629ffb6fbd3,i-0b394b292af43cbe4,80"
+    id               = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/642c8d1cbd6649c5,i-02529e46d1b384116,80"
     port             = 80
     region           = "us-east-1"
-    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/47f3a629ffb6fbd3"
-    target_id        = "i-0b394b292af43cbe4"
+    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-backend/642c8d1cbd6649c5"
+    target_id        = "i-02529e46d1b384116"
 }
 
 # module.servidor_backend.aws_security_group.this:
 resource "aws_security_group" "this" {
-    arn                    = "arn:aws:ec2:us-east-1:962392836377:security-group/sg-00160aa0c48896cb3"
+    arn                    = "arn:aws:ec2:us-east-1:962392836377:security-group/sg-070269476fab85101"
     description            = "Trafico hacia ep2-iac-dev-backend solo desde ALB"
     egress                 = [
         {
@@ -1295,7 +1295,7 @@ resource "aws_security_group" "this" {
             to_port          = 0
         },
     ]
-    id                     = "sg-00160aa0c48896cb3"
+    id                     = "sg-070269476fab85101"
     ingress                = [
         {
             cidr_blocks      = []
@@ -1305,7 +1305,7 @@ resource "aws_security_group" "this" {
             prefix_list_ids  = []
             protocol         = "tcp"
             security_groups  = [
-                "sg-066304f90a040402f",
+                "sg-0643c08393ff3faf6",
             ]
             self             = false
             to_port          = 80
@@ -1321,7 +1321,7 @@ resource "aws_security_group" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-backend-sg"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
         "Rol"         = "backend"
     }
@@ -1330,18 +1330,18 @@ resource "aws_security_group" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-backend-sg"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
         "Rol"         = "backend"
     }
-    vpc_id                 = "vpc-03856ada62d3e7db8"
+    vpc_id                 = "vpc-07fe2c90418013b0f"
 }
 
 
 # module.servidor_web.aws_instance.this[0]:
 resource "aws_instance" "this" {
     ami                                  = "ami-02a9cdd4e98bc3c78"
-    arn                                  = "arn:aws:ec2:us-east-1:962392836377:instance/i-0110ae4f854889553"
+    arn                                  = "arn:aws:ec2:us-east-1:962392836377:instance/i-0e4e92f4feed7d06f"
     associate_public_ip_address          = true
     availability_zone                    = "us-east-1a"
     disable_api_stop                     = false
@@ -1352,7 +1352,7 @@ resource "aws_instance" "this" {
     hibernation                          = false
     host_id                              = null
     iam_instance_profile                 = null
-    id                                   = "i-0110ae4f854889553"
+    id                                   = "i-0e4e92f4feed7d06f"
     instance_initiated_shutdown_behavior = "stop"
     instance_lifecycle                   = null
     instance_state                       = "running"
@@ -1366,23 +1366,23 @@ resource "aws_instance" "this" {
     placement_group                      = null
     placement_group_id                   = null
     placement_partition_number           = 0
-    primary_network_interface_id         = "eni-01d5ed27e2b39a3c9"
-    private_dns                          = "ip-10-20-0-140.ec2.internal"
-    private_ip                           = "10.20.0.140"
-    public_dns                           = "ec2-54-163-133-148.compute-1.amazonaws.com"
-    public_ip                            = "54.163.133.148"
+    primary_network_interface_id         = "eni-0300d0498efbdc859"
+    private_dns                          = "ip-10-20-0-170.ec2.internal"
+    private_ip                           = "10.20.0.170"
+    public_dns                           = "ec2-3-83-9-128.compute-1.amazonaws.com"
+    public_ip                            = "3.83.9.128"
     region                               = "us-east-1"
     secondary_private_ips                = []
     security_groups                      = []
     source_dest_check                    = true
     spot_instance_request_id             = null
-    subnet_id                            = "subnet-059451346ad674f61"
+    subnet_id                            = "subnet-0eaf1bbe771f09950"
     tags                                 = {
         "Asignatura"  = "AUY1103 - Infraestructura como Codigo I"
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-web-1"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
         "Rol"         = "estatico"
     }
@@ -1391,7 +1391,7 @@ resource "aws_instance" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-web-1"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
         "Rol"         = "estatico"
     }
@@ -1428,7 +1428,7 @@ resource "aws_instance" "this" {
     EOT
     user_data_replace_on_change          = false
     vpc_security_group_ids               = [
-        "sg-0a597ae529361dec1",
+        "sg-08e7c8dcd69b0fe92",
     ]
 
     capacity_reservation_specification {
@@ -1464,7 +1464,7 @@ resource "aws_instance" "this" {
 
     primary_network_interface {
         delete_on_termination = true
-        network_interface_id  = "eni-01d5ed27e2b39a3c9"
+        network_interface_id  = "eni-0300d0498efbdc859"
     }
 
     private_dns_name_options {
@@ -1482,7 +1482,7 @@ resource "aws_instance" "this" {
         tags                  = {}
         tags_all              = {}
         throughput            = 125
-        volume_id             = "vol-0084285d24d30e889"
+        volume_id             = "vol-097b6fee2e494968c"
         volume_size           = 8
         volume_type           = "gp3"
     }
@@ -1490,16 +1490,16 @@ resource "aws_instance" "this" {
 
 # module.servidor_web.aws_lb_target_group_attachment.this[0]:
 resource "aws_lb_target_group_attachment" "this" {
-    id               = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-estatico/70252a69cd573005,i-0110ae4f854889553,80"
+    id               = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-estatico/53a7effaf5986caa,i-0e4e92f4feed7d06f,80"
     port             = 80
     region           = "us-east-1"
-    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-estatico/70252a69cd573005"
-    target_id        = "i-0110ae4f854889553"
+    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:962392836377:targetgroup/ep2-iac-dev-tg-estatico/53a7effaf5986caa"
+    target_id        = "i-0e4e92f4feed7d06f"
 }
 
 # module.servidor_web.aws_security_group.this:
 resource "aws_security_group" "this" {
-    arn                    = "arn:aws:ec2:us-east-1:962392836377:security-group/sg-0a597ae529361dec1"
+    arn                    = "arn:aws:ec2:us-east-1:962392836377:security-group/sg-08e7c8dcd69b0fe92"
     description            = "Trafico hacia ep2-iac-dev-web solo desde ALB"
     egress                 = [
         {
@@ -1516,7 +1516,7 @@ resource "aws_security_group" "this" {
             to_port          = 0
         },
     ]
-    id                     = "sg-0a597ae529361dec1"
+    id                     = "sg-08e7c8dcd69b0fe92"
     ingress                = [
         {
             cidr_blocks      = []
@@ -1526,7 +1526,7 @@ resource "aws_security_group" "this" {
             prefix_list_ids  = []
             protocol         = "tcp"
             security_groups  = [
-                "sg-0c8df902bf05d39d5",
+                "sg-06c73528df4013e73",
             ]
             self             = false
             to_port          = 80
@@ -1542,7 +1542,7 @@ resource "aws_security_group" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-web-sg"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
         "Rol"         = "estatico"
     }
@@ -1551,11 +1551,11 @@ resource "aws_security_group" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-web-sg"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
         "Rol"         = "estatico"
     }
-    vpc_id                 = "vpc-03856ada62d3e7db8"
+    vpc_id                 = "vpc-07fe2c90418013b0f"
 }
 
 
@@ -1568,8 +1568,8 @@ resource "aws_db_subnet_group" "database" {
     name_prefix             = null
     region                  = "us-east-1"
     subnet_ids              = [
-        "subnet-0278dec9cd67090fa",
-        "subnet-0ad23e3f104a0039c",
+        "subnet-09a9e28c8a81e050e",
+        "subnet-0c21a78bc2b318fbd",
     ]
     supported_network_types = [
         "IPV4",
@@ -1579,7 +1579,7 @@ resource "aws_db_subnet_group" "database" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-db-subnets"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                = {
@@ -1587,31 +1587,31 @@ resource "aws_db_subnet_group" "database" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-db-subnets"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                  = "vpc-03856ada62d3e7db8"
+    vpc_id                  = "vpc-07fe2c90418013b0f"
 }
 
 # module.vpc.aws_default_network_acl.this[0]:
 resource "aws_default_network_acl" "this" {
-    arn                    = "arn:aws:ec2:us-east-1:962392836377:network-acl/acl-041c8824d3a90fae6"
-    default_network_acl_id = "acl-041c8824d3a90fae6"
-    id                     = "acl-041c8824d3a90fae6"
+    arn                    = "arn:aws:ec2:us-east-1:962392836377:network-acl/acl-0fefb2ae0238744c6"
+    default_network_acl_id = "acl-0fefb2ae0238744c6"
+    id                     = "acl-0fefb2ae0238744c6"
     owner_id               = "962392836377"
     region                 = "us-east-1"
     subnet_ids             = [
-        "subnet-0278dec9cd67090fa",
-        "subnet-045e51af0e212ada4",
-        "subnet-059451346ad674f61",
-        "subnet-0ad23e3f104a0039c",
+        "subnet-043a5167a3b8f0fc6",
+        "subnet-09a9e28c8a81e050e",
+        "subnet-0c21a78bc2b318fbd",
+        "subnet-0eaf1bbe771f09950",
     ]
     tags                   = {
         "Asignatura"  = "AUY1103 - Infraestructura como Codigo I"
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-default"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all               = {
@@ -1619,10 +1619,10 @@ resource "aws_default_network_acl" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-default"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                 = "vpc-03856ada62d3e7db8"
+    vpc_id                 = "vpc-07fe2c90418013b0f"
 
     egress {
         action          = "allow"
@@ -1673,9 +1673,9 @@ resource "aws_default_network_acl" "this" {
 
 # module.vpc.aws_default_route_table.default[0]:
 resource "aws_default_route_table" "default" {
-    arn                    = "arn:aws:ec2:us-east-1:962392836377:route-table/rtb-01c15db48e7ff23b7"
-    default_route_table_id = "rtb-01c15db48e7ff23b7"
-    id                     = "rtb-01c15db48e7ff23b7"
+    arn                    = "arn:aws:ec2:us-east-1:962392836377:route-table/rtb-08241d7949bbbcab1"
+    default_route_table_id = "rtb-08241d7949bbbcab1"
+    id                     = "rtb-08241d7949bbbcab1"
     owner_id               = "962392836377"
     propagating_vgws       = []
     region                 = "us-east-1"
@@ -1685,7 +1685,7 @@ resource "aws_default_route_table" "default" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-default"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all               = {
@@ -1693,10 +1693,10 @@ resource "aws_default_route_table" "default" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-default"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                 = "vpc-03856ada62d3e7db8"
+    vpc_id                 = "vpc-07fe2c90418013b0f"
 
     timeouts {
         create = "5m"
@@ -1706,10 +1706,10 @@ resource "aws_default_route_table" "default" {
 
 # module.vpc.aws_default_security_group.this[0]:
 resource "aws_default_security_group" "this" {
-    arn                    = "arn:aws:ec2:us-east-1:962392836377:security-group/sg-0ab94463d2991ef82"
+    arn                    = "arn:aws:ec2:us-east-1:962392836377:security-group/sg-01d6bfb559f2adce1"
     description            = "default VPC security group"
     egress                 = []
-    id                     = "sg-0ab94463d2991ef82"
+    id                     = "sg-01d6bfb559f2adce1"
     ingress                = []
     name                   = "default"
     name_prefix            = null
@@ -1721,7 +1721,7 @@ resource "aws_default_security_group" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-default"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all               = {
@@ -1729,16 +1729,16 @@ resource "aws_default_security_group" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-default"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                 = "vpc-03856ada62d3e7db8"
+    vpc_id                 = "vpc-07fe2c90418013b0f"
 }
 
 # module.vpc.aws_internet_gateway.this[0]:
 resource "aws_internet_gateway" "this" {
-    arn      = "arn:aws:ec2:us-east-1:962392836377:internet-gateway/igw-0826aae299a3246ff"
-    id       = "igw-0826aae299a3246ff"
+    arn      = "arn:aws:ec2:us-east-1:962392836377:internet-gateway/igw-041232ea03c1d5278"
+    id       = "igw-041232ea03c1d5278"
     owner_id = "962392836377"
     region   = "us-east-1"
     tags     = {
@@ -1746,7 +1746,7 @@ resource "aws_internet_gateway" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all = {
@@ -1754,10 +1754,10 @@ resource "aws_internet_gateway" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id   = "vpc-03856ada62d3e7db8"
+    vpc_id   = "vpc-07fe2c90418013b0f"
 }
 
 # module.vpc.aws_route.database_internet_gateway[0]:
@@ -1768,8 +1768,8 @@ resource "aws_route" "database_internet_gateway" {
     destination_ipv6_cidr_block = null
     destination_prefix_list_id  = null
     egress_only_gateway_id      = null
-    gateway_id                  = "igw-0826aae299a3246ff"
-    id                          = "r-rtb-04b41c4daa38a27b01080289494"
+    gateway_id                  = "igw-041232ea03c1d5278"
+    id                          = "r-rtb-0bfea1ab0b09f72241080289494"
     instance_id                 = null
     instance_owner_id           = null
     local_gateway_id            = null
@@ -1778,7 +1778,7 @@ resource "aws_route" "database_internet_gateway" {
     odb_network_arn             = null
     origin                      = "CreateRoute"
     region                      = "us-east-1"
-    route_table_id              = "rtb-04b41c4daa38a27b0"
+    route_table_id              = "rtb-0bfea1ab0b09f7224"
     state                       = "active"
     transit_gateway_id          = null
     vpc_endpoint_id             = null
@@ -1797,8 +1797,8 @@ resource "aws_route" "public_internet_gateway" {
     destination_ipv6_cidr_block = null
     destination_prefix_list_id  = null
     egress_only_gateway_id      = null
-    gateway_id                  = "igw-0826aae299a3246ff"
-    id                          = "r-rtb-01bbca3bb051a4ad61080289494"
+    gateway_id                  = "igw-041232ea03c1d5278"
+    id                          = "r-rtb-068bd377431a726cf1080289494"
     instance_id                 = null
     instance_owner_id           = null
     local_gateway_id            = null
@@ -1807,7 +1807,7 @@ resource "aws_route" "public_internet_gateway" {
     odb_network_arn             = null
     origin                      = "CreateRoute"
     region                      = "us-east-1"
-    route_table_id              = "rtb-01bbca3bb051a4ad6"
+    route_table_id              = "rtb-068bd377431a726cf"
     state                       = "active"
     transit_gateway_id          = null
     vpc_endpoint_id             = null
@@ -1820,8 +1820,8 @@ resource "aws_route" "public_internet_gateway" {
 
 # module.vpc.aws_route_table.database[0]:
 resource "aws_route_table" "database" {
-    arn              = "arn:aws:ec2:us-east-1:962392836377:route-table/rtb-04b41c4daa38a27b0"
-    id               = "rtb-04b41c4daa38a27b0"
+    arn              = "arn:aws:ec2:us-east-1:962392836377:route-table/rtb-0bfea1ab0b09f7224"
+    id               = "rtb-0bfea1ab0b09f7224"
     owner_id         = "962392836377"
     propagating_vgws = []
     region           = "us-east-1"
@@ -1832,7 +1832,7 @@ resource "aws_route_table" "database" {
             core_network_arn           = null
             destination_prefix_list_id = null
             egress_only_gateway_id     = null
-            gateway_id                 = "igw-0826aae299a3246ff"
+            gateway_id                 = "igw-041232ea03c1d5278"
             ipv6_cidr_block            = null
             local_gateway_id           = null
             nat_gateway_id             = null
@@ -1848,7 +1848,7 @@ resource "aws_route_table" "database" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-db"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all         = {
@@ -1856,16 +1856,16 @@ resource "aws_route_table" "database" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-db"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id           = "vpc-03856ada62d3e7db8"
+    vpc_id           = "vpc-07fe2c90418013b0f"
 }
 
 # module.vpc.aws_route_table.public[0]:
 resource "aws_route_table" "public" {
-    arn              = "arn:aws:ec2:us-east-1:962392836377:route-table/rtb-01bbca3bb051a4ad6"
-    id               = "rtb-01bbca3bb051a4ad6"
+    arn              = "arn:aws:ec2:us-east-1:962392836377:route-table/rtb-068bd377431a726cf"
+    id               = "rtb-068bd377431a726cf"
     owner_id         = "962392836377"
     propagating_vgws = []
     region           = "us-east-1"
@@ -1876,7 +1876,7 @@ resource "aws_route_table" "public" {
             core_network_arn           = null
             destination_prefix_list_id = null
             egress_only_gateway_id     = null
-            gateway_id                 = "igw-0826aae299a3246ff"
+            gateway_id                 = "igw-041232ea03c1d5278"
             ipv6_cidr_block            = null
             local_gateway_id           = null
             nat_gateway_id             = null
@@ -1892,7 +1892,7 @@ resource "aws_route_table" "public" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-public"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all         = {
@@ -1900,51 +1900,51 @@ resource "aws_route_table" "public" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-public"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id           = "vpc-03856ada62d3e7db8"
+    vpc_id           = "vpc-07fe2c90418013b0f"
 }
 
 # module.vpc.aws_route_table_association.database[0]:
 resource "aws_route_table_association" "database" {
     gateway_id     = null
-    id             = "rtbassoc-0e9fde6345984da6a"
+    id             = "rtbassoc-050222672cf00c0ff"
     region         = "us-east-1"
-    route_table_id = "rtb-04b41c4daa38a27b0"
-    subnet_id      = "subnet-0ad23e3f104a0039c"
+    route_table_id = "rtb-0bfea1ab0b09f7224"
+    subnet_id      = "subnet-0c21a78bc2b318fbd"
 }
 
 # module.vpc.aws_route_table_association.database[1]:
 resource "aws_route_table_association" "database" {
     gateway_id     = null
-    id             = "rtbassoc-0701611d5a39c5d64"
+    id             = "rtbassoc-0cf041c3d9f9cf541"
     region         = "us-east-1"
-    route_table_id = "rtb-04b41c4daa38a27b0"
-    subnet_id      = "subnet-0278dec9cd67090fa"
+    route_table_id = "rtb-0bfea1ab0b09f7224"
+    subnet_id      = "subnet-09a9e28c8a81e050e"
 }
 
 # module.vpc.aws_route_table_association.public[0]:
 resource "aws_route_table_association" "public" {
     gateway_id     = null
-    id             = "rtbassoc-058b25afdd2e47d94"
+    id             = "rtbassoc-05718d6283174cc90"
     region         = "us-east-1"
-    route_table_id = "rtb-01bbca3bb051a4ad6"
-    subnet_id      = "subnet-059451346ad674f61"
+    route_table_id = "rtb-068bd377431a726cf"
+    subnet_id      = "subnet-0eaf1bbe771f09950"
 }
 
 # module.vpc.aws_route_table_association.public[1]:
 resource "aws_route_table_association" "public" {
     gateway_id     = null
-    id             = "rtbassoc-0c51b427252d7a043"
+    id             = "rtbassoc-0a01724a89d4f4d77"
     region         = "us-east-1"
-    route_table_id = "rtb-01bbca3bb051a4ad6"
-    subnet_id      = "subnet-045e51af0e212ada4"
+    route_table_id = "rtb-068bd377431a726cf"
+    subnet_id      = "subnet-043a5167a3b8f0fc6"
 }
 
 # module.vpc.aws_subnet.database[0]:
 resource "aws_subnet" "database" {
-    arn                                            = "arn:aws:ec2:us-east-1:962392836377:subnet/subnet-0ad23e3f104a0039c"
+    arn                                            = "arn:aws:ec2:us-east-1:962392836377:subnet/subnet-0c21a78bc2b318fbd"
     assign_ipv6_address_on_creation                = false
     availability_zone                              = "us-east-1a"
     availability_zone_id                           = "use1-az2"
@@ -1954,7 +1954,7 @@ resource "aws_subnet" "database" {
     enable_lni_at_device_index                     = 0
     enable_resource_name_dns_a_record_on_launch    = false
     enable_resource_name_dns_aaaa_record_on_launch = false
-    id                                             = "subnet-0ad23e3f104a0039c"
+    id                                             = "subnet-0c21a78bc2b318fbd"
     ipv6_cidr_block                                = null
     ipv6_cidr_block_association_id                 = null
     ipv6_native                                    = false
@@ -1969,7 +1969,7 @@ resource "aws_subnet" "database" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-db-us-east-1a"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                                       = {
@@ -1977,15 +1977,15 @@ resource "aws_subnet" "database" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-db-us-east-1a"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                                         = "vpc-03856ada62d3e7db8"
+    vpc_id                                         = "vpc-07fe2c90418013b0f"
 }
 
 # module.vpc.aws_subnet.database[1]:
 resource "aws_subnet" "database" {
-    arn                                            = "arn:aws:ec2:us-east-1:962392836377:subnet/subnet-0278dec9cd67090fa"
+    arn                                            = "arn:aws:ec2:us-east-1:962392836377:subnet/subnet-09a9e28c8a81e050e"
     assign_ipv6_address_on_creation                = false
     availability_zone                              = "us-east-1b"
     availability_zone_id                           = "use1-az4"
@@ -1995,7 +1995,7 @@ resource "aws_subnet" "database" {
     enable_lni_at_device_index                     = 0
     enable_resource_name_dns_a_record_on_launch    = false
     enable_resource_name_dns_aaaa_record_on_launch = false
-    id                                             = "subnet-0278dec9cd67090fa"
+    id                                             = "subnet-09a9e28c8a81e050e"
     ipv6_cidr_block                                = null
     ipv6_cidr_block_association_id                 = null
     ipv6_native                                    = false
@@ -2010,7 +2010,7 @@ resource "aws_subnet" "database" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-db-us-east-1b"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                                       = {
@@ -2018,15 +2018,15 @@ resource "aws_subnet" "database" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-db-us-east-1b"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                                         = "vpc-03856ada62d3e7db8"
+    vpc_id                                         = "vpc-07fe2c90418013b0f"
 }
 
 # module.vpc.aws_subnet.public[0]:
 resource "aws_subnet" "public" {
-    arn                                            = "arn:aws:ec2:us-east-1:962392836377:subnet/subnet-059451346ad674f61"
+    arn                                            = "arn:aws:ec2:us-east-1:962392836377:subnet/subnet-0eaf1bbe771f09950"
     assign_ipv6_address_on_creation                = false
     availability_zone                              = "us-east-1a"
     availability_zone_id                           = "use1-az2"
@@ -2036,7 +2036,7 @@ resource "aws_subnet" "public" {
     enable_lni_at_device_index                     = 0
     enable_resource_name_dns_a_record_on_launch    = false
     enable_resource_name_dns_aaaa_record_on_launch = false
-    id                                             = "subnet-059451346ad674f61"
+    id                                             = "subnet-0eaf1bbe771f09950"
     ipv6_cidr_block                                = null
     ipv6_cidr_block_association_id                 = null
     ipv6_native                                    = false
@@ -2051,7 +2051,7 @@ resource "aws_subnet" "public" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-public-us-east-1a"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                                       = {
@@ -2059,15 +2059,15 @@ resource "aws_subnet" "public" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-public-us-east-1a"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                                         = "vpc-03856ada62d3e7db8"
+    vpc_id                                         = "vpc-07fe2c90418013b0f"
 }
 
 # module.vpc.aws_subnet.public[1]:
 resource "aws_subnet" "public" {
-    arn                                            = "arn:aws:ec2:us-east-1:962392836377:subnet/subnet-045e51af0e212ada4"
+    arn                                            = "arn:aws:ec2:us-east-1:962392836377:subnet/subnet-043a5167a3b8f0fc6"
     assign_ipv6_address_on_creation                = false
     availability_zone                              = "us-east-1b"
     availability_zone_id                           = "use1-az4"
@@ -2077,7 +2077,7 @@ resource "aws_subnet" "public" {
     enable_lni_at_device_index                     = 0
     enable_resource_name_dns_a_record_on_launch    = false
     enable_resource_name_dns_aaaa_record_on_launch = false
-    id                                             = "subnet-045e51af0e212ada4"
+    id                                             = "subnet-043a5167a3b8f0fc6"
     ipv6_cidr_block                                = null
     ipv6_cidr_block_association_id                 = null
     ipv6_native                                    = false
@@ -2092,7 +2092,7 @@ resource "aws_subnet" "public" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-public-us-east-1b"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                                       = {
@@ -2100,32 +2100,32 @@ resource "aws_subnet" "public" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc-public-us-east-1b"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
-    vpc_id                                         = "vpc-03856ada62d3e7db8"
+    vpc_id                                         = "vpc-07fe2c90418013b0f"
 }
 
 # module.vpc.aws_vpc.this[0]:
 resource "aws_vpc" "this" {
-    arn                                  = "arn:aws:ec2:us-east-1:962392836377:vpc/vpc-03856ada62d3e7db8"
+    arn                                  = "arn:aws:ec2:us-east-1:962392836377:vpc/vpc-07fe2c90418013b0f"
     assign_generated_ipv6_cidr_block     = false
     cidr_block                           = "10.20.0.0/16"
-    default_network_acl_id               = "acl-041c8824d3a90fae6"
-    default_route_table_id               = "rtb-01c15db48e7ff23b7"
-    default_security_group_id            = "sg-0ab94463d2991ef82"
+    default_network_acl_id               = "acl-0fefb2ae0238744c6"
+    default_route_table_id               = "rtb-08241d7949bbbcab1"
+    default_security_group_id            = "sg-01d6bfb559f2adce1"
     dhcp_options_id                      = "dopt-04c55087be139c047"
     enable_dns_hostnames                 = true
     enable_dns_support                   = true
     enable_network_address_usage_metrics = false
-    id                                   = "vpc-03856ada62d3e7db8"
+    id                                   = "vpc-07fe2c90418013b0f"
     instance_tenancy                     = "default"
     ipv6_association_id                  = null
     ipv6_cidr_block                      = null
     ipv6_cidr_block_network_border_group = null
     ipv6_ipam_pool_id                    = null
     ipv6_netmask_length                  = 0
-    main_route_table_id                  = "rtb-01c15db48e7ff23b7"
+    main_route_table_id                  = "rtb-08241d7949bbbcab1"
     owner_id                             = "962392836377"
     region                               = "us-east-1"
     tags                                 = {
@@ -2133,7 +2133,7 @@ resource "aws_vpc" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
     tags_all                             = {
@@ -2141,7 +2141,7 @@ resource "aws_vpc" "this" {
         "Environment" = "dev"
         "ManagedBy"   = "Terraform"
         "Name"        = "ep2-iac-dev-vpc"
-        "Owner"       = "Jose Antonio Villarroel"
+        "Owner"       = "Jose Antonio Villarroel / Fernando Galdamez"
         "Project"     = "ep2-iac"
     }
 }
@@ -2149,12 +2149,16 @@ resource "aws_vpc" "this" {
 
 Outputs:
 
-alb_backend_dns = "http://ep2-iac-dev-alb-backend-232243523.us-east-1.elb.amazonaws.com"
-alb_estatico_dns = "http://ep2-iac-dev-alb-estatico-271848994.us-east-1.elb.amazonaws.com"
+alb_backend_dns = "http://ep2-iac-dev-alb-backend-1680548512.us-east-1.elb.amazonaws.com"
+alb_estatico_dns = "http://ep2-iac-dev-alb-estatico-1339877562.us-east-1.elb.amazonaws.com"
 backend_instance_ids = [
-    "i-0cb0e3e0c9d69f802",
-    "i-099c79ddb795f525c",
-    "i-0b394b292af43cbe4",
+    "i-08bc7fa7ed13e3478",
+    "i-0880e040b6c918d4d",
+    "i-02529e46d1b384116",
 ]
+bucket_imagenes = "CDN deshabilitado (variante aplicada)"
+cdn_imagen_prueba_url = "CDN deshabilitado (variante aplicada)"
+cloudfront_url = "CDN deshabilitado (variante aplicada)"
 rds_endpoint = "ep2-iac-dev-mysql.caqqoyogd1e6.us-east-1.rds.amazonaws.com"
 rds_password = (sensitive value)
+region = "us-east-1"

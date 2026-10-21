@@ -174,10 +174,10 @@ resource "aws_security_group" "rds" {
 resource "aws_db_instance" "mysql" {
   identifier     = "${local.nombre_base}-mysql"
   engine         = "mysql"
-  engine_version = "8.0"
-  instance_class = "db.t3.micro"
+  engine_version = var.db_engine_version
+  instance_class = var.db_instance_class
 
-  allocated_storage = 20
+  allocated_storage = var.db_allocated_storage
   storage_type      = "gp3"
 
   db_name  = var.db_name
